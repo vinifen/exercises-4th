@@ -60,8 +60,6 @@ export default class Deck {
           j--;
         }
       }
-      
-      
     }
     return {array: newArray, comparison, swap}
   }
