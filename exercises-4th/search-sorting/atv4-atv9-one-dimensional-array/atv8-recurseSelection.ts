@@ -1,4 +1,6 @@
-// INCREASING – Model a class that has as an attribute a one-dimensional array of 20 integers (received by the constructor). Implement an iterative method that returns whether this array is in ascending order. Abandon the check as soon as you notice otherwise.
+// RECURSIVE SELECTION – In the same class as Exercise 4, propose a recursive implementation for Selection Sort.
+// At each recursive call, bring the smallest element of the subsequence to the first position of the subsequence. 
+// Then, apply recursion to order the remaining elements.
 
 import OneDimensionalArray from "./One-dimensional-array";
 
@@ -7,8 +9,8 @@ const increasingArray = [2, 5, 7, 11, 13, 16, 23, 29, 31, 38, 42, 46, 54, 61, 68
 
 console.log("Result 1:");
 const array1 = new OneDimensionalArray(randomArray);
-console.log(array1.increasing());
+console.log(array1.recursiveSelection());
 
 console.log("Result 2:");
 const array2 = new OneDimensionalArray(increasingArray);
-console.log(array2.increasing());
+console.log(array2.recursiveSelection());
