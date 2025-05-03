@@ -6,6 +6,35 @@
 // "sena", "quina", "quadra", or "not a winner".
 
 class MegaSena {
-  constructor(private array: number){}
+  private resultNumbers: number[] = []
+  constructor(private numbers: number[]){}
+  
+  public winningDozens(dozens: number[]){
+    for (let i = 0; i < this.numbers.length; i++) {
+      for (let j = 0; j <= dozens.length; j++) {
+        if(this.numbers[i] === dozens[j]){
+          this.resultNumbers.push(this.numbers[i]);
+        }
+        
+      }
+    }
+    return this.resultNumbers;
+  }
+  
+  public result() {
+    switch (this.resultNumbers.length) {
+      case 6:
+        return "Jackpot";   
+      case 5:
+        return "Five hits"; 
+      case 4:
+        return "Four hits"; 
+      default:
+        return "No prize";   
+    }
+  }
 }
 
+const megasena = new MegaSena([1, 10, 6, 9, 2, 13, 20, 10, 7]);
+console.log(megasena.winningDozens([8, 11, 2, 9, 6, 10]));
+console.log(megasena.result());
