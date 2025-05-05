@@ -1,3 +1,5 @@
+// BINGO –– Design and implement a class that generates a bingo card. The card consists of 25 numbers from 1 to 50, divided into five columns. There must be no repeated numbers. The toString() method should return the card in a formatted output.
+
 class Bingo {
   constructor(){
     let bingo: number[][] = [];
