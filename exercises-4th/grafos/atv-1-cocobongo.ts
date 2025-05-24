@@ -15,24 +15,21 @@
 
 // We have invitations = [ (0, [1,2]), (2, [3]) ].
 // Guest 0 has invited guests 1 and 2; also, guest 2 has invited guest 3. However, noone has invited guest 4, so he is a gatecrasher.
-let invitations: [number, number[]][] = [ [0, [1,2]], [2, [3]] ];
-let people = [0,1,2,3,4];
-function findGatecrashers(people: number[], invitations: [number, number[]][]) {
-  let members_found = 0;
-  console.log(people.length)
-  for (let i = 0; i < people.length; i++){
-    console.log(people[i])
-    for (let j = 0; j < invitations.length; j++){
-      for (let y = 0; y < invitations[i].length; y++){
-        for (let t = 0; t < invitations[j].length; t++){
-          if(invitations[y][j] == people[i]){
-            members_found = people[i];
-          }
-        }
-      }
-    }
+let invitations = [ { members: 0, guests: [1, 2] }, { members: 2, guests: [3] } ];
+let people = [0, 1, 2, 3, 4];
+
+function findGatecrashers(
+  people: number[], 
+  invitations: { members: number, guests: number[] }[]
+): number[] {
+  let invited: number[] = [];
+
+  for (let i = 0; i < invitations.length; i++) {
+    const inv = invitations[i];
+    invited.push(inv.members, ...inv.guests);
   }
-  console.log("membros: ", members_found);
+
+  return people.filter(person => !invited.includes(person));
 }
 
-findGatecrashers(people, invitations);
+console.log(findGatecrashers(people, invitations));
