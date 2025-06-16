@@ -29,7 +29,6 @@ export default class Clock {
   }
 
   closestToMidnight(){
-    console.log("Vinicius Ferreira Novacoski & Nicolas Justino Veiga");
 
     const validHours = this.getValidHours();
     let resultMinutes = 0;
